@@ -1,0 +1,21 @@
+{
+  "name": "transaction-app",
+  "version": "1.0.0",
+  "description": "Sample transaction app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Express",
+    "REST",
+    "mongoDB"
+  ],
+  "author": "jain24akash",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.13"
+  }
+}
