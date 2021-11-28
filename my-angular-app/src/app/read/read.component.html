@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <h2>List of Transactions</h2>
+    <table class="table table-striped-border mt-1">
+        <thead>
+            <tr>
+                <th data-name = "id" scope= "col">ID</th>
+                <th data-name = "walletId" scope="col">Wallet ID</th>
+                <th [appSort] = "readData" data-order = "desc" data-name="amount" scope="col">Amount</th>
+                <th [appSort] = "readData" data-order = "desc" data-name="balance" scope="col">Balance</th>
+                <th data-name = "description" scope="col">Description</th>
+                <th data-name = "date" scope="col">Date</th>
+                <th data-name = "type" scope="col">Credit/Debit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let us of readData | paginate: config'>
+                <th scope="row">{{us._id}}</th>
+                <td>{{us.walletId}}</td>
+                <td>{{us.amount}}</td>
+                <td>{{us.balance}}</td>
+                <td>{{us.description}}</td>
+                <td>{{us.date}}</td>
+                <td>{{us.type}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls 
+        [maxSize]="maxSize"
+        [directionLinks]="directionLinks"
+        [autoHide]="autoHide"
+        [responsive]="responsive"
+        [previousLabel]="labels.previousLabel"
+        [nextLabel]="labels.nextLabel"
+        [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+        [screenReaderPageLabel]="labels.screenReaderPageLabel"
+        [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+        (pageChange)="pageChanged($event)">
+    </pagination-controls>
+</div>

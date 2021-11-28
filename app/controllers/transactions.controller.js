@@ -84,6 +84,12 @@ exports.create = async (req, res) => {
 
 // Retrieve and return all transactions from the database.
 exports.findAll = (req, res) => {
+    if(!req.query.skip){
+        req.query.skip = 0;
+    }
+    if(!req.query.limit){
+        req.query.limit =100;
+    }
     Transactions.find(req.query).skip(parseInt(req.query.skip)).limit(parseInt(req.query.limit))
         .then(transaction => {
             res.send(transaction);
