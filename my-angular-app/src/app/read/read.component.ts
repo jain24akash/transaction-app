@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiserviceService} from '../apiservice.service'
+import {ApiserviceService} from '../apiservice.service';
+import { ExportService } from './services/export.service';
 
 @Component({
   selector: 'app-read',
@@ -8,7 +9,7 @@ import {ApiserviceService} from '../apiservice.service'
 })
 export class ReadComponent implements OnInit {
 
-  constructor(private service: ApiserviceService) { }
+  constructor(private service: ApiserviceService, private exportService: ExportService) { }
 
   readData: any;
   config: any;
@@ -42,6 +43,14 @@ export class ReadComponent implements OnInit {
   }
   pageChanged(event: any){
     this.config.currentPage = event;
+  }
+
+  /**
+   * Funtion prepares data to pass to export service to create csv from Json
+   *
+   */
+  exportToCsv(): void {
+    this.exportService.downloadFile(this.readData, 'transaction-data', ['_id', 'walletId', 'amount', 'balance', 'description', 'type', 'date']);
   }
 
 }

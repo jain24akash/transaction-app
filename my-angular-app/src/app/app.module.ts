@@ -9,6 +9,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 import {HttpClientModule} from '@angular/common/http'
 import { ApiserviceService } from './apiservice.service';
+import { ExportService } from './read/services/export.service';
 import { SortDirective } from './directive/sort.directive';
 
 @NgModule({
@@ -24,7 +25,8 @@ import { SortDirective } from './directive/sort.directive';
     HttpClientModule,
     NgxPaginationModule
   ],
-  providers: [ApiserviceService],
+  providers: [ApiserviceService,
+              ExportService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

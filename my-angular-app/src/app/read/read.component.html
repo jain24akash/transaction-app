@@ -1,15 +1,25 @@
 <div class="container mt-5">
     <h2>List of Transactions</h2>
+    <div>
+        <ul class="list-group list-group-horizontal list-group-flush">
+            <li class="list-group-item border-0">
+                <button class="btn btn-sm font-weight-bold btn-link" (click)="exportToCsv()">
+                    <i class="fa fa-external-link"></i>
+                    Export to CSV
+                </button>
+            </li>
+        </ul>
+    </div>
     <table class="table table-striped-border mt-1">
         <thead>
             <tr>
-                <th data-name = "id" scope= "col">ID</th>
-                <th data-name = "walletId" scope="col">Wallet ID</th>
-                <th [appSort] = "readData" data-order = "desc" data-name="amount" scope="col">Amount</th>
-                <th [appSort] = "readData" data-order = "desc" data-name="balance" scope="col">Balance</th>
-                <th data-name = "description" scope="col">Description</th>
-                <th data-name = "date" scope="col">Date</th>
-                <th data-name = "type" scope="col">Credit/Debit</th>
+                <th data-name="id" scope="col">ID</th>
+                <th data-name="walletId" scope="col">Wallet ID</th>
+                <th [appSort]="readData" data-order="desc" data-name="amount" scope="col">Amount</th>
+                <th [appSort]="readData" data-order="desc" data-name="balance" scope="col">Balance</th>
+                <th data-name="description" scope="col">Description</th>
+                <th data-name="date" scope="col">Date</th>
+                <th data-name="type" scope="col">Credit/Debit</th>
             </tr>
         </thead>
         <tbody>
@@ -24,16 +34,11 @@
             </tr>
         </tbody>
     </table>
-    <pagination-controls 
-        [maxSize]="maxSize"
-        [directionLinks]="directionLinks"
-        [autoHide]="autoHide"
-        [responsive]="responsive"
-        [previousLabel]="labels.previousLabel"
-        [nextLabel]="labels.nextLabel"
+    <pagination-controls [maxSize]="maxSize" [directionLinks]="directionLinks" [autoHide]="autoHide"
+        [responsive]="responsive" [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel"
         [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
         [screenReaderPageLabel]="labels.screenReaderPageLabel"
-        [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
-        (pageChange)="pageChanged($event)">
+        [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel" (pageChange)="pageChanged($event)">
     </pagination-controls>
 </div>
+    
