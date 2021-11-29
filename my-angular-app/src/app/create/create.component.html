@@ -11,7 +11,7 @@
                 placeholder="Balance">
         </div>
         <div class="col-lg-4 mt-2">
-            <button class="btn btn-primary btn-sm">
+            <button class="btn btn-primary btn-sm" type="submit" [disabled]="!userForm.valid">
                 Create Wallet
             </button>
         </div>
@@ -48,7 +48,7 @@
             <label class="form-check-label" for="flexSwitchCheckDefault">CREDIT</label>
         </div>
         <div class="col-lg-4 mt-2">
-            <button class="btn btn-primary btn-sm">
+            <button class="btn btn-primary btn-sm" type="submit" [disabled]="!formTransaction.valid">
                 Create Transaction
             </button>
         </div>

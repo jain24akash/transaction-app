@@ -42,7 +42,7 @@ export class CreateComponent implements OnInit {
   });
 
   formTransaction = new FormGroup({
-    'amount': new FormControl(''),
+    'amount': new FormControl('', Validators.required),
     'description': new FormControl('')
   })
 
@@ -68,6 +68,8 @@ export class CreateComponent implements OnInit {
     };
     if(!this.credit){
       tr.amount = -1 * Math.abs(tr.amount);
+    }else{
+      tr.amount = Math.abs(tr.amount);
     }
     this.service.createTransaction({amount: tr.amount, description: tr.description}, this.walletId).subscribe((res)=>{
       console.log(`Transaction ID--->${res}`);
