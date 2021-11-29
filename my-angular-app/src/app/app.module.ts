@@ -11,6 +11,7 @@ import {HttpClientModule} from '@angular/common/http'
 import { ApiserviceService } from './apiservice.service';
 import { ExportService } from './read/services/export.service';
 import { SortDirective } from './directive/sort.directive';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { SortDirective } from './directive/sort.directive';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [ApiserviceService,
               ExportService],

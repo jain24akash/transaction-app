@@ -9,6 +9,10 @@ exports.create = (req, res) => {
         });
     }
 
+    if(req.body.balance == null){
+        req.body.balance = 0;
+    }
+
     // Create a Wallet
     const wallet = new Wallet({ 
         balance: parseFloat(req.body.balance).toFixed(4),
@@ -28,6 +32,12 @@ exports.create = (req, res) => {
 
 // Retrieve and return all Wallets from the database.
 exports.findAll = (req, res) => {
+    if(!req.query.skip){
+        req.query.skip = 0;
+    }
+    if(!req.query.limit){
+        req.query.limit =100;
+    }
     Wallet.find(req.query).skip(parseInt(req.query.skip)).limit(req.query.limit)
     .then(wallet => {
         res.send(wallet);
