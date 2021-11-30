@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // parse requests of content-type - application/json
 app.use(bodyParser.json())
 
-app.use(express.static(__dirname + '/app/public'));
+app.use(express.static(__dirname + '/app/public/'));
 
 // Set headers to allow CORS origin
 app.use(function(req, res, next) {
@@ -48,6 +48,6 @@ require('./app/routes/wallet.routes.js')(app);
 require('./app/routes/transactions.routes.js')(app);
 
 // listen for requests
-app.listen(3000, () => {
-    console.log("Server is listening on port 3000");
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`Server is listening on port ${process.env.PORT}`);
 });
