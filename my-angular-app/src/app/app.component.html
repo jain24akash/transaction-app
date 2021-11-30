@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <h1>Transactions-App</h1>
 
-  <button routerLink="read" (click)="hideHome()" class="btn btn-primary"> Wallet Transactions </button>
+  <button *ngIf="numWallets" routerLink="read" (click)="hideHome()" class="btn btn-primary"> Wallet Transactions </button>
   &nbsp;
   <button *ngIf="this.hideHomePage" routerLink="" (click)="unhideHome()" class="btn btn-success"> Home </button>
   <router-outlet></router-outlet>

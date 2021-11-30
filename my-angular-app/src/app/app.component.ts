@@ -58,8 +58,9 @@ export class AppComponent implements OnInit {
       this.service.walletId = this.walletId;
       console.log(`Wallet ID--->${this.walletId}`);
       this.userForm.reset();
+      location.reload();
     });
-    location.reload();
+
   }
 
   switchClicked(event:any){
@@ -82,7 +83,7 @@ export class AppComponent implements OnInit {
       console.log(`Transaction ID--->${res}`);
       this.walletInfo.balance = res.balance;
       this.formTransaction.reset();
-      location.reload();
+      // location.reload();
     });
 
   }
