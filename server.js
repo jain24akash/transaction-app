@@ -11,6 +11,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // parse requests of content-type - application/json
 app.use(bodyParser.json())
 
+app.use(express.static(__dirname + '/app/public'));
+
 // Set headers to allow CORS origin
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");

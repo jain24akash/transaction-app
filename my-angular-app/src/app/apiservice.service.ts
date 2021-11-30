@@ -9,7 +9,7 @@ export class ApiserviceService {
 
   constructor(private _http:HttpClient) { }
 
-  apiUrl = 'http://localhost:3000';
+  apiUrl = '';
 
   getAllTransactions(): Observable<any>{
     return this._http.get(`${this.apiUrl}/transactions`);
