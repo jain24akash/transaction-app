@@ -25,21 +25,27 @@ export class AppComponent implements OnInit {
     balance: 0
   };
   hideHomePage = false;
+  loading = true;
 
 
   ngOnInit() {
-    this.service.getAllWallets().subscribe((res)=>{
-      console.log(res, 'wallets');
-      this.walletData = res;
-      this.numWallets = res.length;
-      if(res.length > 0){
-        this.walletId = res[0]._id;
-        this.service.walletId = this.walletId;
-        this.walletInfo.name = res[0].name;
-        this.walletInfo.balance = res[0].balance;
-        console.log(`Wallet ID--->${this.walletId}`);
-      }
-    })
+    if(!this.walletId){
+      this.loading = true;
+      this.service.getAllWallets().subscribe((res)=>{
+        this.loading = false;
+        console.log(res, 'wallets');
+        this.walletData = res;
+        this.numWallets = res.length;
+        if(res.length > 0){
+          this.walletId = res[0]._id;
+          this.service.walletId = this.walletId;
+          this.walletInfo.name = res[0].name;
+          this.walletInfo.balance = res[0].balance;
+          console.log(`Wallet ID--->${this.walletId}`);
+        }
+      })
+    }
+    
   }
 
   userForm = new FormGroup({

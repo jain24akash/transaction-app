@@ -26,7 +26,7 @@ export class ApiserviceService {
   }
 
   getAllWallets(): Observable<any>{
-    return this._http.get(`${this.apiUrl}/wallet`)
+    return this._http.get(`${this.apiUrl}/wallet`);
   }
 
   createTransaction(data:any, walletId:any): Observable<any>{

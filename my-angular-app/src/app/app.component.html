@@ -1,12 +1,27 @@
+<style> .loader {
+  position: fixed;
+  background-color: #FFF;
+  opacity: 1;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+</style>
+
 <div class="container mt-5">
   <h1>Transactions-App</h1>
-
-  <button *ngIf="numWallets" routerLink="read" (click)="hideHome()" class="btn btn-primary"> Wallet Transactions </button>
+  <div *ngIf="loading" class="loader">
+    <h1>Loading...</h1>
+  </div>
+  <button *ngIf="numWallets" routerLink="read" (click)="hideHome()" class="btn btn-primary"> Wallet Transactions
+  </button>
   &nbsp;
   <button *ngIf="this.hideHomePage" routerLink="" (click)="unhideHome()" class="btn btn-success"> Home </button>
   <router-outlet></router-outlet>
 
-  <div *ngIf="!numWallets && !hideHomePage" id ="createWallet" class="container mt-5">
+  <div *ngIf="!numWallets && !hideHomePage" id="createWallet" class="container mt-5">
     <form [formGroup]="userForm" (ngSubmit)="createWallet()">
       <div class="col-lg-4 mt-2">
         <label for="name">User Name:</label><br>
@@ -26,7 +41,7 @@
     </form>
   </div>
 
-  <div *ngIf="numWallets && !hideHomePage" id ="WalletInfo" class="container mt-5">
+  <div *ngIf="numWallets && !hideHomePage" id="WalletInfo" class="container mt-5">
     <h2>Wallet Information</h2>
     <div class="col-lg-4 mt-2">
       <label for="name">Name : {{ this.walletInfo.name }}</label><br>
@@ -37,7 +52,7 @@
   </div>
 
 
-  <div *ngIf="numWallets && !hideHomePage" id ="createTransaction" class="container mt-5">
+  <div *ngIf="numWallets && !hideHomePage" id="createTransaction" class="container mt-5">
     <h2>Create Transaction</h2>
     <form [formGroup]="formTransaction" (ngSubmit)="createTransaction()">
       <div class="col-lg-4 mt-2">
@@ -64,4 +79,4 @@
 
     </form>
   </div>
-</div>
+  </div>
