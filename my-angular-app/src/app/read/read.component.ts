@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiserviceService} from '../apiservice.service';
 import { ExportService } from './services/export.service';
+import {AppComponent} from '../app.component'
 
 @Component({
   selector: 'app-read',
@@ -27,7 +28,7 @@ export class ReadComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.service.getAllTransactions().subscribe((res)=> {
+    this.service.getAllTransactions(this.service.walletId).subscribe((res)=> {
       console.log(res, "result-->");
       this.readData = res;
       this.collection.count = this.readData.length;

@@ -10,9 +10,15 @@ export class ApiserviceService {
   constructor(private _http:HttpClient) { }
 
   apiUrl = '';
+  walletId: any;
 
-  getAllTransactions(): Observable<any>{
-    return this._http.get(`${this.apiUrl}/transactions`);
+  getAllTransactions(walledtId:any): Observable<any>{
+    if(this.walletId){
+      return this._http.get(`${this.apiUrl}/transactions?walletId=${walledtId}`);
+    } else {
+      return this._http.get(`${this.apiUrl}/transactions`);
+    }
+    
   }
 
   createWallet(data:any): Observable<any>{
