@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
   };
   hideHomePage = false;
   loading = true;
+  type: string = 'CREDIT';
 
 
   ngOnInit() {
@@ -71,6 +72,7 @@ export class AppComponent implements OnInit {
 
   switchClicked(event:any){
     this.credit = event.srcElement.checked;
+    this.type = this.credit ? 'CREDIT' : 'DEBIT';
     // console.log(`credit is ${this.credit}`);
   }
 

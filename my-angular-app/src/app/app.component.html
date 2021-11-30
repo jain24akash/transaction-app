@@ -68,7 +68,7 @@
       <div class="form-check form-switch">
         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked
           (click)="switchClicked($event)">
-        <label class="form-check-label" for="flexSwitchCheckDefault">CREDIT</label>
+        <label class="form-check-label" for="flexSwitchCheckDefault">{{type}}</label>
       </div>
       <div class="col-lg-4 mt-2">
         <button class="btn btn-primary btn-sm" type="submit" [disabled]="!formTransaction.valid">
