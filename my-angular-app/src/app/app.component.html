@@ -3,7 +3,7 @@
 
   <button routerLink="read" (click)="hideHome()" class="btn btn-primary"> Wallet Transactions </button>
   &nbsp;
-  <a routerLink="" (click)="unhideHome()" class="btn btn-success"> Home </a>
+  <button *ngIf="this.hideHomePage" routerLink="" (click)="unhideHome()" class="btn btn-success"> Home </button>
   <router-outlet></router-outlet>
 
   <div *ngIf="!numWallets && !hideHomePage" id ="createWallet" class="container mt-5">
