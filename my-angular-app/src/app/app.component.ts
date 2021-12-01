@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
 
   userForm = new FormGroup({
     'name': new FormControl('', Validators.required),
-    'balance': new FormControl('')
+    'balance': new FormControl('', Validators.required)
   });
 
   formTransaction = new FormGroup({
