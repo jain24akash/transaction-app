@@ -14,5 +14,5 @@ module.exports = (app) => {
     app.put('/transact/:id', transactions.update);
 
     // Delete a transaction with Id
-    app.delete('/wallet/:id', transactions.delete);
+    app.delete('/transactions/:id', transactions.delete);
 }
