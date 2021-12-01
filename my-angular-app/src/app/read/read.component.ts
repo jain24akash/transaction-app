@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import {ApiserviceService} from '../apiservice.service';
 import { ExportService } from './services/export.service';
-import {AppComponent} from '../app.component'
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-read',
@@ -10,7 +10,7 @@ import {AppComponent} from '../app.component'
 })
 export class ReadComponent implements OnInit {
 
-  constructor(private service: ApiserviceService, private exportService: ExportService) { }
+  constructor(private service: ApiserviceService, private exportService: ExportService, private router: Router) { }
 
   readData: any;
   config: any;
