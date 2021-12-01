@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
       this.loading = true;
       this.service.getAllWallets().subscribe((res)=>{
         this.loading = false;
-        console.log(res, 'wallets');
+        // console.log(res, 'wallets');
         this.walletData = res;
         this.numWallets = res.length;
         if(res.length > 0){
@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
           this.service.walletId = this.walletId;
           this.walletInfo.name = res[0].name;
           this.walletInfo.balance = res[0].balance;
-          console.log(`Wallet ID--->${this.walletId}`);
+          // console.log(`Wallet ID--->${this.walletId}`);
         }
       })
     }
@@ -63,7 +63,7 @@ export class AppComponent implements OnInit {
     this.service.createWallet({name: this.userForm.value.name, balance: this.userForm.value.balance}).subscribe((res)=>{
       this.walletId = res._id;
       this.service.walletId = this.walletId;
-      console.log(`Wallet ID--->${this.walletId}`);
+      //console.log(`Wallet ID--->${this.walletId}`);
       this.userForm.reset();
       location.reload();
     });
@@ -88,7 +88,7 @@ export class AppComponent implements OnInit {
       tr.amount = Math.abs(tr.amount);
     }
     this.service.createTransaction({amount: tr.amount, description: tr.description}, this.walletId).subscribe((res)=>{
-      console.log(`Transaction ID--->${res}`);
+      // console.log(`Transaction ID--->${res}`);
       this.walletInfo.balance = res.balance;
       this.formTransaction.reset();
       // location.reload();

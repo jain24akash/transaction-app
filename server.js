@@ -48,6 +48,9 @@ require('./app/routes/wallet.routes.js')(app);
 require('./app/routes/transactions.routes.js')(app);
 
 // listen for requests
-app.listen(process.env.PORT || 3000, () => {
+if(!process.env.PORT){
+    process.env.PORT = 3000;
+}
+app.listen(process.env.PORT, () => {
     console.log(`Server is listening on port ${process.env.PORT}`);
 });

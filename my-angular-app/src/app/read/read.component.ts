@@ -29,7 +29,7 @@ export class ReadComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getAllTransactions(this.service.walletId).subscribe((res)=> {
-      console.log(res, "result-->");
+      // console.log(res, "result-->");
       this.readData = res;
       this.collection.count = this.readData.length;
       this.collection.data = this.readData;

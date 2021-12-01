@@ -3,12 +3,20 @@ Deployed App Link - https://test-transaction-app.herokuapp.com
 
 Tech Stack: Backend -> Node.js + MongoDB, Frontend: Angular
 
+Problem Statement:
+
+    Implement a backend service for wallet system with following functionalities:
+        1. Setup Wallet
+        2. Credit/Debit Transactions
+        3. Fetch transactions on wallet
+        4. Get wallet details
+
 Folder Structure:
 
     1. /app -> Has all the backend routes, data models, controllers for actions performed
 
         1.1 /app/routes -> Defines the allowed routes for wallet and transactions. Not allowed actions are left unimplemented
-        1.2 /app/models -> Defines the schema model for wallet and transaction tables and loaded in mongoose
+        1.2 /app/models -> Defines the schema model for wallet and transaction tables and loads in mongoose
         1.3 /app/controllers -> implements the route defined in /app/routes, processes data, does the database actions and sends response
 
     2. /config -> Has database config storing the connection string to connect to mongoDB Atlas server
@@ -19,7 +27,7 @@ Folder Structure:
 
     4. server.js -> Has the server implementation 
 
-API Definitions:
+API endpoint definitions:
 
     1. POST /setup { name: string, balance: Number } - Creates a new wallet with name and initial balance
     2. GET /wallet - Gets all wallets from DB

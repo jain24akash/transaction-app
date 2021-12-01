@@ -17,7 +17,7 @@ exports.create = async (req, res) => {
                         message: "Wallet not found with id " + req.params.walletId
                     });
                 }
-                console.log(parseFloat(parseFloat(wallet.balance) + parseFloat(req.body.amount)).toFixed(4));
+                // console.log(parseFloat(parseFloat(wallet.balance) + parseFloat(req.body.amount)).toFixed(4));
                 // update wallet balance, use optimistic locking to prevent race conditions
                 await walletModel.findOneAndUpdate({ _id: req.params.walletId, updatedAt: wallet.updatedAt }, {
                     $set: {
@@ -27,7 +27,7 @@ exports.create = async (req, res) => {
                     .session(session)
                     .then(async updatedDocument => {
                         if (updatedDocument) {
-                            console.log(`Document To be updated: ${updatedDocument}.`);
+                            // console.log(`Document To be updated: ${updatedDocument}.`);
                         } else {
                             await session.abortTransaction();
                             res.status(404).send("No document matches the provided query.");
