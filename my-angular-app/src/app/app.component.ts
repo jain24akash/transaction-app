@@ -32,6 +32,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     if(!this.walletId){
       this.loading = true;
+      this.credit = true;
+      this.type = 'CREDIT';
       this.service.getAllWallets().subscribe((res)=>{
         this.loading = false;
         // console.log(res, 'wallets');
@@ -97,6 +99,8 @@ export class AppComponent implements OnInit {
   }
   hideHome(){
     this.hideHomePage = true;
+    this.credit = true;
+    this.type = 'CREDIT';
   }
 
   unhideHome(){
