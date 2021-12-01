@@ -11,7 +11,7 @@ module.exports = (app) => {
     app.get('/transaction/:id', transactions.findOne);
 
     // Update a transaction
-    app.put('/transact/:id', transactions.update);
+    app.put('/transactions/:id', transactions.update);
 
     // Delete a transaction with Id
     app.delete('/transactions/:id', transactions.delete);
