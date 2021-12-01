@@ -70,12 +70,16 @@ exports.findOne = (req, res) => {
     });
 };
 
-// // Update a Wallet identified by the WalletId in the request
-// exports.update = (req, res) => {
+// Update a Wallet identified by the WalletId in the request
+exports.update = (req, res) => {
+    res.status(404).send({
+        message: "Not implemented"
+    });
+};
 
-// };
-
-// // Delete a Wallet with the specified WalletId in the request
-// exports.delete = (req, res) => {
-
-// };
+// Delete a Wallet with the specified WalletId in the request
+exports.delete = (req, res) => {
+    res.status(404).send({
+        message: "Not implemented"
+    });
+};

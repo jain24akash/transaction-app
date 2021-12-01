@@ -8,11 +8,11 @@ module.exports = (app) => {
     app.get('/transactions', transactions.findAll);
 
     // Retrieve a single transaction with Id
-    // app.get('/wallet/:walletId', wallet.findOne);
+    app.get('/transaction/:id', transactions.findOne);
 
     // Update a transaction
-    // app.put('/transact/:walletId', wallet.update);
+    app.put('/transact/:id', transactions.update);
 
     // Delete a transaction with Id
-    // app.delete('/wallet/:walletId', wallet.delete);
+    app.delete('/wallet/:id', transactions.delete);
 }

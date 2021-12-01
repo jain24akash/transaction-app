@@ -10,9 +10,9 @@ module.exports = (app) => {
     // Retrieve a single Note with noteId
     app.get('/wallet/:walletId', wallet.findOne);
 
-    // Update a Note with noteId
-    // app.put('/wallet/:walletId', wallet.update);
+    // Update a wallet with walletId
+    app.put('/wallet/:walletId', wallet.update);
 
-    // Delete a Note with noteId
-    // app.delete('/wallet/:walletId', wallet.delete);
+    // Delete a wallet with walletId
+    app.delete('/wallet/:walletId', wallet.delete);
 }

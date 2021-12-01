@@ -100,17 +100,23 @@ exports.findAll = (req, res) => {
         });
 };
 
-// // Find a single transaction with a transactionId
-// exports.findOne = (req, res) => {
+// Find a single transaction with a transactionId
+exports.findOne = (req, res) => {
+    res.status(404).send({
+        message: "Not implemented"
+    });
+};
 
-// };
+// Update a transaction identified by the transactionId in the request
+exports.update = (req, res) => {
+    res.status(404).send({
+        message: "Not implemented"
+    });
+};
 
-// // Update a transaction identified by the transactionId in the request
-// exports.update = (req, res) => {
-
-// };
-
-// // Delete a transaction with the specified transactionId in the request
-// exports.delete = (req, res) => {
-
-// };
+// Delete a transaction with the specified transactionId in the request
+exports.delete = (req, res) => {
+    res.status(404).send({
+        message: "Not implemented"
+    });
+};
